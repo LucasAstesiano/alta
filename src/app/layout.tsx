@@ -4,7 +4,7 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "ALTA Trail Lab — El camino se dibuja paso a paso",
   description:
-    "Equipo esencial de trail running, diseñado en Patagonia para quienes encuentran su norte fuera del camino.",
+    "Equipamiento de trail running para tu próximo sendero. Diseño esencial, ajuste y movimiento desde Mendoza, Argentina.",
   icons: {
     icon: "/alta-mark.svg",
   },
