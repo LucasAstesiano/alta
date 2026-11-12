@@ -22,8 +22,27 @@ function Wordmark({ light = false }: { light?: boolean }) {
   );
 }
 
-function Arrow() {
-  return <span aria-hidden="true">↗</span>;
+function IconArrow({ direction = "up-right" }: { direction?: "up-right" | "down" | "up" }) {
+  const paths = {
+    "up-right": <><path d="M5 19 19 5" /><path d="M8 5h11v11" /></>,
+    down: <><path d="M12 4v16" /><path d="m6 14 6 6 6-6" /></>,
+    up: <><path d="M12 20V4" /><path d="m6 10 6-6 6 6" /></>,
+  };
+
+  return (
+    <svg aria-hidden="true" className="icon-arrow" fill="none" viewBox="0 0 24 24">
+      {paths[direction]}
+    </svg>
+  );
+}
+
+function IconMail() {
+  return (
+    <svg aria-hidden="true" className="icon-mail" fill="none" viewBox="0 0 24 24">
+      <rect height="14" rx="1" width="18" x="3" y="5" />
+      <path d="m4 7 8 6 8-6" />
+    </svg>
+  );
 }
 
 const productDetails = [
@@ -46,21 +65,21 @@ export default function Home() {
             <a href="#criterios">Diseño</a>
             <a href="#historia">Territorio</a>
           </nav>
-          <a className="header-cta" href="#lanzamiento">Próximamente <Arrow /></a>
+          <a className="header-cta" href="#lanzamiento"><span>Próximamente</span> <IconArrow /></a>
         </header>
 
         <div className="hero__content">
           <p className="kicker kicker--light"><span /> Alta Trail Lab · Mendoza</p>
           <h1>El camino<br />se dibuja<br /><em>paso a paso.</em></h1>
           <div className="hero__actions">
-            <a className="button button--light" href="#coleccion">Conocé ALTA <Arrow /></a>
+            <a className="button button--light" href="#coleccion">Conocé ALTA <IconArrow /></a>
             <p>Equipamiento de trail running para tu próximo sendero.</p>
           </div>
         </div>
 
         <div className="hero__footer">
           <span>33° S · Cordillera de los Andes</span>
-          <a href="#manifiesto">Descubrir ↓</a>
+          <a href="#manifiesto">Descubrir <IconArrow direction="down" /></a>
         </div>
       </section>
 
@@ -69,7 +88,7 @@ export default function Home() {
         <h2>Menos ruido.<br />Más <em>montaña.</em></h2>
         <div className="manifesto__copy">
           <p>ALTA nace para acompañar el ritmo real del sendero: avanzar ligero, llevar lo esencial y mantener el foco en el recorrido.</p>
-          <a className="text-link" href="#criterios">Nuestra forma de diseñar <Arrow /></a>
+          <a className="text-link" href="#criterios">Nuestra forma de diseñar <IconArrow /></a>
         </div>
       </section>
 
@@ -92,7 +111,7 @@ export default function Home() {
               </article>
             ))}
           </div>
-          <a className="button button--dark" href="#lanzamiento">Avisame del lanzamiento <Arrow /></a>
+          <a className="button button--dark" href="#lanzamiento">Avisame del lanzamiento <IconArrow /></a>
         </div>
       </section>
 
@@ -128,7 +147,7 @@ export default function Home() {
           <p className="section-label">03 · Territorio</p>
           <h2 id="story-title">Hecho para<br />encontrar<br /><em>tu ritmo.</em></h2>
           <p>No hay una única forma de recorrer la montaña. ALTA acompaña la que elijas, desde el primer ascenso hasta el último tramo de regreso.</p>
-          <a className="text-link text-link--light" href="#lanzamiento">Seguí el proyecto <Arrow /></a>
+          <a className="text-link text-link--light" href="#lanzamiento">Seguí el proyecto <IconArrow /></a>
         </div>
       </section>
 
@@ -140,7 +159,7 @@ export default function Home() {
         </div>
         <div className="launch__action">
           <p>Sumate para recibir novedades del desarrollo y la fecha de lanzamiento.</p>
-          <a className="button button--dark" href="mailto:hola@altatraillab.com?subject=Quiero%20conocer%20ALTA">Quiero recibir novedades <Arrow /></a>
+          <a className="button button--dark" href="mailto:hola@altatraillab.com?subject=Quiero%20conocer%20ALTA">Quiero recibir novedades <IconArrow /></a>
         </div>
       </section>
 
@@ -148,8 +167,8 @@ export default function Home() {
         <Wordmark />
         <p>Equipamiento para tu próximo sendero.</p>
         <div className="site-footer__links">
-          <a href="mailto:hola@altatraillab.com">Contacto</a>
-          <a href="#inicio">Volver arriba ↑</a>
+          <a href="mailto:hola@altatraillab.com">Contacto <IconMail /></a>
+          <a href="#inicio">Volver arriba <IconArrow direction="up" /></a>
         </div>
         <div className="site-footer__legal">
           <span>© 2026 ALTA TRAIL LAB</span>

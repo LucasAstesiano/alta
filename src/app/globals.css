@@ -153,18 +153,22 @@ em {
   gap: 18px;
 }
 
-.header-cta span {
+.header-cta .icon-arrow {
   display: grid;
   width: 34px;
   height: 34px;
   place-items: center;
   border: 1px solid rgb(250 249 245 / 46%);
   border-radius: 50%;
-  font-size: 14px;
+  padding: 8px;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.6;
   transition: background 180ms ease, color 180ms ease;
 }
 
-.header-cta:hover span {
+.header-cta:hover .icon-arrow {
   background: var(--paper);
   color: var(--forest);
 }
@@ -251,8 +255,14 @@ em {
   transition: background 200ms ease, color 200ms ease, transform 200ms ease;
 }
 
-.button span {
-  font-size: 15px;
+.button .icon-arrow {
+  width: 17px;
+  height: 17px;
+  flex: 0 0 auto;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.7;
 }
 
 .button:hover {
@@ -290,6 +300,22 @@ em {
   font-weight: 700;
   letter-spacing: 0.16em;
   text-transform: uppercase;
+}
+
+.hero__footer a {
+  display: inline-flex;
+  min-height: 34px;
+  align-items: center;
+  gap: 8px;
+}
+
+.hero__footer .icon-arrow {
+  width: 15px;
+  height: 15px;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.6;
 }
 
 .manifesto {
@@ -344,9 +370,14 @@ em {
   text-transform: uppercase;
 }
 
-.text-link span {
+.text-link .icon-arrow {
   color: var(--amber);
-  font-size: 15px;
+  width: 16px;
+  height: 16px;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.7;
 }
 
 .product {
@@ -722,6 +753,22 @@ em {
   text-transform: uppercase;
 }
 
+.site-footer__links a {
+  display: inline-flex;
+  min-height: 38px;
+  align-items: center;
+  gap: 7px;
+}
+
+.site-footer__links svg {
+  width: 14px;
+  height: 14px;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.7;
+}
+
 .site-footer__legal {
   display: flex;
   grid-column: 1 / -1;
@@ -759,9 +806,9 @@ em {
 }
 
 @media (max-width: 700px) {
-  .site-header { min-height: 76px; padding: 0 6vw; }
-  .header-cta { gap: 9px; font-size: 8px; }
-  .header-cta span { width: 28px; height: 28px; }
+  .site-header { min-height: 78px; padding: 0 max(6vw, env(safe-area-inset-right)) 0 max(6vw, env(safe-area-inset-left)); }
+  .header-cta { min-height: 44px; gap: 10px; font-size: 8px; }
+  .header-cta .icon-arrow { width: 34px; height: 34px; padding: 8px; }
   .wordmark__mark { width: 31px; height: 25px; }
   .wordmark__name { font-size: 19px; }
   .wordmark__sub { margin-top: 6px; font-size: 6px; }
@@ -776,7 +823,10 @@ em {
   .hero h1 { margin-left: -3px; font-size: clamp(58px, 17vw, 88px); line-height: 0.87; }
   .hero__actions { align-items: flex-start; flex-direction: column; gap: 18px; }
   .hero__actions p { max-width: 220px; }
-  .hero__footer { right: 6vw; bottom: 20px; left: 6vw; }
+  .hero__footer { right: max(6vw, env(safe-area-inset-right)); bottom: max(20px, env(safe-area-inset-bottom)); left: max(6vw, env(safe-area-inset-left)); }
+  .hero__footer a { min-height: 44px; }
+  .button { width: 100%; min-height: 54px; padding: 0 19px; }
+  .hero__actions .button { width: min(100%, 280px); }
   .manifesto { grid-template-columns: 1fr; gap: 28px; min-height: 0; padding: 68px 7vw; }
   .manifesto h2, .criteria__heading h2, .launch h2 { font-size: clamp(48px, 14vw, 68px); }
   .manifesto__copy { grid-column: 1; }
@@ -805,8 +855,8 @@ em {
 }
 
 @media (max-width: 420px) {
-  .header-cta { font-size: 0; }
-  .header-cta span { font-size: 13px; }
+  .header-cta > span { display: none; }
+  .header-cta .icon-arrow { width: 40px; height: 40px; padding: 10px; }
   .hero__footer span { max-width: 155px; }
   .product__visual { min-height: 450px; }
   .criteria-card { min-height: 310px; }
